@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  height: calc(100vh - 70px);
+}
+
+.mapa {
+  flex: 1;
+}
+
+.dashboard {
+  width: 1200px;
+  overflow-y: auto;
+  background: white;
+}
