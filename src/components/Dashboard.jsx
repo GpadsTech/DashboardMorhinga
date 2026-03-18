@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import {db} from '../firebase.js'
 import {collection, onSnapshot } from 'firebase/firestore'
+import { Link } from 'react-router-dom'
 
 function Dashboard()
 {
@@ -33,6 +34,7 @@ function Dashboard()
     return(
         <div className={styles.dashboard}>
         <h2 className={styles.titulo}>Estação de Parnamirim</h2>
+        <Link to="/historico">Histórico</Link>
         <div className={styles.grid}>
             <div className={styles.card}>
             <Gauge titulo="Temperatura" valor={sensor_dados ? (sensor_dados.Temperatura ?? sensor_dados['Temperatura(ºC)'] ?? 0) : 0} min={0} max={50}/>
@@ -44,6 +46,7 @@ function Dashboard()
             <Gauge titulo="ph" valor={ph_dados ? (ph_dados.Umidade ?? ph_dados['Umidade(%)'] ?? 0) : 0} min={0} max={14}/>
             </div>
         </div>
+
         </div>
     )
 }
