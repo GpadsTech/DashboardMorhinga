@@ -6,7 +6,7 @@ import {db} from '../firebase.js'
 import {collection, onSnapshot } from 'firebase/firestore'
 import { Link } from 'react-router-dom'
 
-function Dashboard()
+function Dashboard({ onFechar })
 {
       const [sensor_dados, setSensor_Dados] = useState(null)
       const [ph_dados, setPh_Dados] = useState(null)
@@ -34,7 +34,31 @@ function Dashboard()
     return(
         <div className={styles.dashboard}>
         <h2 className={styles.titulo}>Estação de Parnamirim</h2>
-        <Link to="/historico">Histórico</Link>
+        <div style={{ position: 'absolute', top: '1rem', right: '1rem', display: 'flex', gap: '0.5rem' }}>
+        <Link to="/historico" style={{
+            padding: '0.5rem 1.2rem',
+            border: '3px solid #333',
+            borderRadius: '9px',
+            textDecoration: 'none',
+            color: '#333',
+            fontWeight: '700',
+            fontSize: '0.9rem'
+        }}>
+            Histórico
+        </Link>
+        <button onClick={onFechar} style={{
+            background: 'none',
+            border: '3px solid #333',
+            borderRadius: '8px',
+            fontSize: '1rem',
+            cursor: 'pointer',
+            color: '#333',
+            padding: '0.5rem 0.8rem',
+            fontWeight: '600'
+        }}>
+            ✕
+        </button>
+        </div>
         <div className={styles.grid}>
             <div className={styles.card}>
             <Gauge titulo="Temperatura" valor={sensor_dados ? (sensor_dados.Temperatura ?? sensor_dados['Temperatura(ºC)'] ?? 0) : 0} min={0} max={50} cor="#FF6B35" unidade="°C"/>

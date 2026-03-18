@@ -19,7 +19,7 @@ function App() {
               </div>
               {estacaoSelecionada && (
                 <div className={styles.dashboard}>
-                  <Dashboard />
+                <Dashboard onFechar={() => setestacaoSelecionada(null)} />
                 </div>
               )}
             </div>
