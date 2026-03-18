@@ -37,13 +37,13 @@ function Dashboard()
         <Link to="/historico">Histórico</Link>
         <div className={styles.grid}>
             <div className={styles.card}>
-            <Gauge titulo="Temperatura" valor={sensor_dados ? (sensor_dados.Temperatura ?? sensor_dados['Temperatura(ºC)'] ?? 0) : 0} min={0} max={50}/>
+            <Gauge titulo="Temperatura" valor={sensor_dados ? (sensor_dados.Temperatura ?? sensor_dados['Temperatura(ºC)'] ?? 0) : 0} min={0} max={50} cor="#FF6B35" unidade="°C"/>
             </div>
             <div className={styles.card}>
-            <Gauge titulo="Umidade" valor={sensor_dados ? (sensor_dados.Umidade ?? sensor_dados['Umidade(%)'] ?? 0) : 0} min={0} max={100}/>
+            <Gauge titulo="Umidade" valor={sensor_dados ? (sensor_dados.Umidade ?? sensor_dados['Umidade(%)'] ?? 0) : 0} min={0} max={100} cor="#4A90D9" unidade="%" />
             </div>
             <div className={styles.card}>
-            <Gauge titulo="ph" valor={ph_dados ? (ph_dados.Umidade ?? ph_dados['Umidade(%)'] ?? 0) : 0} min={0} max={14}/>
+            <Gauge titulo="ph" valor={ph_dados ? (ph_dados.Umidade ?? ph_dados['Umidade(%)'] ?? 0) : 0} min={0} max={14} cor="#7ecec4" unidade="pH"/>
             </div>
         </div>
 
