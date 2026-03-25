@@ -3,6 +3,7 @@ import { db } from '../firebase.js'
 import styles from './Historico.module.css'
 import { collection, query, where, orderBy, getDocs } from 'firebase/firestore'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
+import { Link } from 'react-router-dom'
 
 function Historico()
 {
@@ -25,17 +26,16 @@ function Historico()
     }
 
     return(
-        <div className={styles.Historico}>
-
+        <div className={styles.header}>
+            <Link to="/" className={styles.voltar}>← Voltar ao mapa</Link>
             <h2 className={styles.titulo}>Histórico</h2>
-
-   
-                <label > Data de início</label>
+            <div className={styles.filtros}>
+                <label className={styles.label}> Data de início</label>
                 <input  className={styles.input} type="date" value={dataInicio} onChange={(e) => setDatainicio(e.target.value)} />
-                <label > Data final </label>
+                <label className={styles.label}> Data final </label>
                 <input className={styles.input} type="date" value={dataFinal} onChange={(e) => setDataFinal(e.target.value)} />
                 <button className={styles.botao} onClick={pesquisar}>Pesquisar</button>
-
+            </div>
             {dados.length > 0 && (
             <div>
                 <h3>Temperatura</h3>
